@@ -1,3 +1,24 @@
+function DozenDisplay(props) {
+    const { weeksArr, weekNum, finalWeek, yearIndex } = props
+    return(
+        <div className="year-grid">
+            {weeksArr.map(week, weekIndex => {
+                const currWeek = yearIndex * 52 + weekIndex
+                const dotStyle = currWeek == finalWeek - 1 ?
+                    ' death' :
+                    currWeek < weekNum ?
+                    ' solid' :
+                    currWeek == weekNum ?
+                    ' pulse' : ''
+
+                return (
+                    <div className={'dot ' + dotStyle} key={weekIndex} />
+                )
+            })}
+        </div>
+    )
+}
+
 export default function Calender() {
     const { lifeExpectancy, data } = props
     const yearsArr = [...Array(lifeExpectancy).keys()]
