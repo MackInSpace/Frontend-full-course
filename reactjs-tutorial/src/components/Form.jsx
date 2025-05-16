@@ -26,6 +26,19 @@ export default function Form(props) {
     const years = Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i)
 
     return (
-        <div></div>
+        <section id="form">
+            <div>
+                <h4 className='text-gradient'>Your Details</h4>
+                <button onClick={handleCloseModal} className='link-button'>
+                    <i className='fa-solid fa-xmark' />
+                </button>
+            </div>
+            <div>
+                <label>Name</label>
+                <input value={name} onChange={(e) => {
+                    setName(e.target.value)
+                }} type='text' required />
+            </div>
+        </section>
     )
 }
