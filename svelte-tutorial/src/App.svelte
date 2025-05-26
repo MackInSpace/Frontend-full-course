@@ -7,8 +7,16 @@
 </script>
 
 <Layout>
-    <Hero />
-    <Clocks />
-    <Calendar />
-    <Summary />
+    {#snippet headache({ 
+        data, 
+        birthDate, 
+        name, 
+        percentage, 
+        lifeExpectancy 
+        })}
+        <Hero {name} {percentage}/>
+        <Clocks />
+        <Calendar />
+        <Summary />
+    {/snippet}
  </Layout>
