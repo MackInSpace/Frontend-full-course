@@ -1,14 +1,14 @@
 <script>
   import { calculateTimeLeft, getLifePercentageLived } from "../../utils";
 
-    const {headache} = $props();
+    const { headache } = $props();
 
-    let birthDate = '1995-06-15';
-    let lifeExpectancy = 80
-    let name = 'adam'
+    let birthDate = $state('1988-01-18');
+    let lifeExpectancy = $state(80);
+    let name = $state('adam');
+    let data = $state(() => calculateTimeLeft(birthDate, lifeExpectancy));
 
-    let data = calculateTimeLeft(birthDate, lifeExpectancy);
-    let percentage = getLifePercentageLived(birthDate, lifeExpectancy);
+    let percentage = $derived(getLifePercentageLived(birthDate, lifeExpectancy));
 </script>
 
 <header>

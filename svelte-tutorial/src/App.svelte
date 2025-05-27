@@ -14,9 +14,9 @@
         percentage, 
         lifeExpectancy 
         })}
-        <Hero {name} {percentage}/>
-        <Clocks />
-        <Calendar />
-        <Summary />
+        <Hero {name} {percentage} {data}/>
+        <Clocks {data}/>
+        <Calendar {data} {lifeExpectancy}/>
+        <Summary {birthDate} {lifeExpectancy}/>
     {/snippet}
  </Layout>

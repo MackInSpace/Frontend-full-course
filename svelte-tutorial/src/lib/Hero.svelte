@@ -1,5 +1,4 @@
 <script>
-    console.log("hello");
     const { name, percentage, data, handleToggleModal, resetData } = $props();
 </script>
 

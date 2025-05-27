@@ -2,7 +2,7 @@
     import { getTimePercentage } from "../utils";
 
     let  { data } = $props();
-    let snapshot = $derived(getTimePercentage());
+    let snapshot = getTimePercentage();
     console.log(data)
 </script>
 
