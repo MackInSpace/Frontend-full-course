@@ -56,7 +56,8 @@
                 {#each months as month, mI}
                     <option value={mI + 1}>{month}</option>
                 {/each}
-            </select> <select bind:value={year}>
+            </select> 
+            <select bind:value={year}>
                 {#each years as year}
                     <option value={year}>{year}</option>
                 {/each}

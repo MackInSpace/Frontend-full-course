@@ -12,9 +12,11 @@
         birthDate, 
         name, 
         percentage, 
-        lifeExpectancy 
+        lifeExpectancy,
+        handleToggleModal,
+        resetData 
         })}
-        <Hero {name} {percentage} {data}/>
+        <Hero {name} {percentage} {data} {handleToggleModal} {resetData}/>
         <Clocks {data}/>
         <Calendar {data} {lifeExpectancy}/>
         <Summary {birthDate} {lifeExpectancy}/>

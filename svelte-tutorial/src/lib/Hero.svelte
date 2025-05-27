@@ -1,5 +1,6 @@
 <script>
     const { name, percentage, data, handleToggleModal, resetData } = $props();
+    console.log(resetData);
 </script>
 
 <section id="hero">
@@ -7,12 +8,15 @@
         {name}, you have {data['weeks']} weeks left. Make them count!
     </h3>
     <div class="btns-container">
-        <button>Not {name}?</button>
-        <button class="link-button">Copy Link</button>
-        <button class="link-button">Reset data</button>
+        <button onclick={handleToggleModal}>Not {name}?</button>
+        <button onclick={() => {
+            navigator.clipboard.writeText('https://github.com/MackInSpace/Frontend-full-course/tree/main/svelte-tutorial');
+            alert('Copied :)');
+        }} class="link-button">Copy Link</button>
+        <button onclick={resetData} class="link-button">Reset data</button>
     </div>
     <div class="progress-bar">
-        <div>
+        <div style:width={percentage}>
             <div>
                 <i class="fa-solid fa-baby"></i>
                 <h6 class="bar-label">Birth</h6>
