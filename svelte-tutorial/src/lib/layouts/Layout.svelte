@@ -50,6 +50,13 @@
     }
 
     $effect(() => {
+        const interval = setInterval(() => {
+            data = calculateTimeLeft(birthDate, lifeExpectancy);
+        }, 1000);
+        return () => clearInterval(interval);
+    });
+
+    $effect(() => {
         if (!localStorage) {
             // exits function if no local storage available
             return;
