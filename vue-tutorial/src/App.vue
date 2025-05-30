@@ -83,9 +83,15 @@
 </script>
 
 <template>
-  
+  <Layout>
+    <Portal :handleCloseModal="handleToggleModal" :showModal="showModal">
+      <Form :handleCloseModal="handleToggleModal" :handleUpdateData="handleUpdateData"/>
+    </Portal>
+    <Hero :resetData="resetData" :name="name" :data="data" :handleToggleModal="handleToggleModal" :percentage="percentage"></Hero>
+    <Clocks v-bind="totalProps"/>
+    <Calendar v-bind="totalProps"/>
+    <Summary />
+  </Layout>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
