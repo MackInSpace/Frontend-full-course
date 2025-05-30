@@ -43,6 +43,43 @@
     showModal.value = false
   }
 
+  function resetData() {
+    name.value = 'adam'
+    birthDate.value = defaultBD
+    lifeExpectancy.value = defaultLE
+    data.value = calculateTimeLeft(defaultBD, defaultLE)
+    localStorage.clear()
+  }
+
+  const totalProps = {
+    name,
+    birthDate,
+    lifeExpectancy,
+    data,
+    percentage
+  }
+
+  onMounted(() => {
+    // is executed on component mount
+    if (!localStorage) {
+      return
+    }
+    if (localStorage.getItem('formData')) {
+      const { name: n, birthDate: b, lifeExpectancy: e } = JSON.parse(localStorage.getItem('formData'))
+      name.value = n
+      birthDate.value = b
+      lifeExpectancy.value = parseInt(e)
+      data.value = calculateTimeLeft(b, parseInt(e))
+    }
+  })
+
+  watchEffect((onCleanup) => {
+    const interval = setInterval(() => {
+      data.value = calculateTimeLeft(birthDate.value, lifeExpectancy.value)
+    }, 1000)
+    onCleanup(() => clearInterval(interval))
+  })
+
 </script>
 
 <template>
